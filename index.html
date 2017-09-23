@@ -66,6 +66,55 @@
             <li>DOG XOR CAT: 8 records</li>
             <li>DOG NOT CAT: 3 records</li>
           </ul>
+        </section>
+        <section>
+          <img src="images/and.png"/>
+        </section>
+        <section>
+          <img src="images/or.png"/>
+        </section>
+        <section>
+          <img src="images/not.png"/>
+        </section>
+        <section>
+          <h3>What's boolean logic good for?</h3>
+          <ul><li>Small, knowable record sets</li>
+              <li>Surrogate records</li>
+              <li>Structured data</li>
+              <li>Controlled vocabulary</li>
+          </ul>
+          <p>Modern information systems don't conform to these
+          things...</p>
+        </section>
+        <section>
+          <ul><li>Large, heterogenous record sets with multiple
+              provenance and varying quality</li>
+            <li>Full text records</li>
+            <li>Unstructured data</li>
+            <li>User-supplied/created vocabularies or no vocabularies at
+              all (extracted metadata)</li>
+          </ul>
+        </section>
+        <section style="text-align:left">
+          <h3>Precision and Recall</h3>
+          <p>Precision: the proportion of relevant results to total
+          results. How many true positives vs false positives?</p>
+          <p>Recall: the proportion of relevant results to total record
+          set. How many true positives were not returned?</p>
+        </section>
+        <section style="text-align:left">
+        <p>Boolean logic presumes that there are only two states:
+        positive and negative.</p>
+        <p>Boolean search strings try for maximum recall and maximum
+        precision (all relevant results returned with fewest false
+        positives).</p>
+        <p>Method: chaining together boolean terms, with parentheses for
+        precedence.</p>
+        <code style="font-size:20pt">(((dogs AND cats) OR parrots) NOT elephants)</code>
+        </section>
+        <section>
+          <h3>Early databases</h3>
+        </section>
 			</div>
 		</div>
 
