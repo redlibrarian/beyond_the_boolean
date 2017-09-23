@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+          <h1>Beyond the Boolean</h1>
+          <h2>Modern Algorithms for Search and Discovery</h2>
+          <p>Sam Popowich<br />
+          Discovery and Web Services Librarian<br />University of
+            Alberta<br />
+          @redlibrarian</p>
+        </section>
+				<section>
+          <h3>Outline</h3>
+          <ul><li>Boolean logic refresher</li>
+            <li>What's boolean logic good for?</li>
+            <li>Precision and Recall</li>
+            <li>Early databases</li>
+            <li>What are Information Retrieval Systems?</li>
+            <li>Data models and conceptual models</li>
+            <li>Information retrieval models</li>
+            <li>Databases vs Indexes</li>
+            <li>Solr and ElasticSearch</li>
+            <li>Taking advantage of non-boolean models</li>
+          </ul>
+        </section>
+        <section>
+        <h3>Boolean logic refresher</h3>
+        <p>Logical operators</p>
+        <ul><li>AND: set of all records with BOTH search terms</li>
+            <li>OR: set of all records with EITHER or BOTH search
+              terms</li>
+            <li>XOR: set of all records with EITHER search term but NOT
+              BOTH</li>
+            <li>NOT: set of all records with one search term BUT NOT the
+              other</li>
+            </ul>
+        </section>
+        <section>
+          <p>Given a set with 3 DOG records, 5 CAT records, and 2
+          DOG/CAT records</p>
+          <ul><li>DOG AND CAT: 2 records</li>
+            <li>DOG OR CAT: 10 records</li>
+            <li>DOG XOR CAT: 8 records</li>
+            <li>DOG NOT CAT: 3 records</li>
+          </ul>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
