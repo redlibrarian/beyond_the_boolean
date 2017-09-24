@@ -24,9 +24,14 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-          <h1>Beyond the Boolean</h1>
-          <h2>Modern Algorithms for Search and Discovery</h2>
+				<section data-background-image="images/almondblossoms.jpg"
+             data-state="dimbg"
+          style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0
+          -1px white;">
+          <h1 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0
+          -1px white;">Beyond the Boolean</h1>
+          <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0
+          -1px white;">Modern Algorithms for Search and Discovery</h2>
           <p>Sam Popowich<br />
           Discovery and Web Services Librarian<br />University of
             Alberta<br />
@@ -37,9 +42,9 @@
           <ul><li>Boolean logic refresher</li>
             <li>What's boolean logic good for?</li>
             <li>Precision and Recall</li>
-            <li>Early databases</li>
-            <li>What are Information Retrieval Systems?</li>
+            <li>Relational databases</li>
             <li>Data models and conceptual models</li>
+            <li>What are Information Retrieval Systems?</li>
             <li>Information retrieval models</li>
             <li>Databases vs Indexes</li>
             <li>Solr and ElasticSearch</li>
@@ -84,7 +89,7 @@
               <li>Controlled vocabulary</li>
           </ul>
           <p>Modern information systems don't conform to these
-          things...</p>
+          criteria...</p>
         </section>
         <section>
           <ul><li>Large, heterogenous record sets with multiple
@@ -107,13 +112,90 @@
         positive and negative.</p>
         <p>Boolean search strings try for maximum recall and maximum
         precision (all relevant results returned with fewest false
-        positives).</p>
+        positives).</p><p>In practice this is impossible for non-trivial
+        cases.</p>
+        </section>
+        <section>
         <p>Method: chaining together boolean terms, with parentheses for
         precedence.</p>
         <code style="font-size:20pt">(((dogs AND cats) OR parrots) NOT elephants)</code>
         </section>
         <section>
-          <h3>Early databases</h3>
+          <h3>Relational databases</h3>
+          <ul><li>Not based on records, but on rows in tables</li>
+              <li>Rows are related to each other by columns in the
+                tables</li>
+              <li>Imagine an Excel spreadsheet calculating a value based
+                on a second sheet</li>
+              <li>A query searches through tables and relationships and
+                returns tables</li>
+              <li>But a database interface seems to search records and
+                return records</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Logical Data Model versus Conceptual Model</h3>
+        </section>
+        <section>
+          <h3>Conceptual Data Model</h3>
+          <ul><li>What are the things that are significant or matter?
+              (Records? Data points? Books? Articles?</li>
+            <li>What is the internal structure of these things? (What
+              characteristics do they have?)</li>
+            <li>What are the relationships between these things?</li>
+            <li>Optimized for users</li>
+          </ul>
+        </section>
+        <section>
+          <img src="images/conceptual.jpg"/>
+        </section>
+        <section>
+          <h3>Logical Data Model</h3>
+          <ul><li>Optimized for the database/query language<li>
+              <li>The *things* that matter are different<li>
+              <li>The relationships are simpler (in a relational
+                database)</li>
+              <li>Tradeoffs in performance, etc</li>
+          </ul>
+        </section>
+        <section>
+          <img src="images/logical.jpg"/>
+        </section>
+        <section>
+          <p>Takeaway: the underlying data is not the same as what
+          people are searching for, or what their query needs to
+          find.</p>
+        </section>
+        <section>
+          <h3>What are Information Retrieval Systems</h3>
+          <ul><li>Databases?</li>
+              <li>Indexes?</li>
+              <li>Spreadsheets?</li>
+              <li>Triplestores?</li>
+           </ul>
+        </section>
+        <section>
+           <p>The computational limitations that made relational
+           databases of a finite, curated, collection of surrogate
+           records the dominant information retrieval system have been
+           overcome...</p>
+        </section>
+        <section>
+          <p>We can now index...</p>
+          <ul><li>Full-text (not just surrogate records)</li>
+              <li>Vast amounts of data, automatically harvested</li>
+              <li>Not bound by a predefined logical data model</li>
+              <li>Relying on user-supplied or automatically extracted
+                metadata</li>
+          </ul>
+        </section>
+        <section>
+          <p>Which means that the logical model for querying all this
+          information is no longer sufficient... we need to move beyond
+          the boolean.</p>
+        </section>
+        <section>
+          <h3>Information Retrieval Models</h3>
         </section>
 			</div>
 		</div>
@@ -133,6 +215,7 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+gica
 		</script>
 	</body>
 </html>
