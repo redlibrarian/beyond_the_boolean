@@ -46,7 +46,6 @@
             <li>Data models and conceptual models</li>
             <li>What are Information Retrieval Systems?</li>
             <li>Information retrieval models</li>
-            <li>Databases vs Indexes</li>
             <li>Solr and ElasticSearch</li>
             <li>Taking advantage of non-boolean models</li>
           </ul>
@@ -106,6 +105,9 @@
           results. How many true positives vs false positives?</p>
           <p>Recall: the proportion of relevant results to total record
           set. How many true positives were not returned?</p>
+          <p>There are other measures of information retrieval; these
+          are two basic ones that tend to be important to library
+          work.</p>
         </section>
         <section style="text-align:left">
         <p>Boolean logic presumes that there are only two states:
@@ -117,7 +119,8 @@
         </section>
         <section>
         <p>Method: chaining together boolean terms, with parentheses for
-        precedence.</p>
+        precedence. This attempts to configure a query for maximum
+        precision and recall <strong>before</strong> the search is run.</p>
         <code style="font-size:20pt">(((dogs AND cats) OR parrots) NOT elephants)</code>
         </section>
         <section>
@@ -151,8 +154,8 @@
         </section>
         <section>
           <h3>Logical Data Model</h3>
-          <ul><li>Optimized for the database/query language<li>
-              <li>The *things* that matter are different<li>
+          <ul><li>Optimized for the database/query language</li>
+              <li>The *things* that matter are different</li>
               <li>The relationships are simpler (in a relational
                 database)</li>
               <li>Tradeoffs in performance, etc</li>
@@ -187,6 +190,7 @@
               <li>Not bound by a predefined logical data model</li>
               <li>Relying on user-supplied or automatically extracted
                 metadata</li>
+              <li>Algorithmically-generated data</li>
           </ul>
         </section>
         <section>
@@ -196,7 +200,92 @@
         </section>
         <section>
           <h3>Information Retrieval Models</h3>
+          <p>Three main types:</p>
+          <ul><li>Based on set theory (e.g. Boolean)</li>
+              <li>Based on linear algebra (e.g. Vector space model)</li>
+              <li>Based on probability/statistics</li>
+          </ul>
         </section>
+        <section>
+          <p style="text-align:left">
+          Each model has benefits and disadvantages; one size does not
+          fit all.</p>
+        </section>
+
+        <section>
+          <h3>Boolean model</h3>
+          <p>Creates sets based on which documents match a current
+          query term; the returned results are the union (OR), intersection
+          (AND), or complement (NOT) of the sets for each query
+          term.</p>
+        </section>
+
+        <section>
+          <h3>Vector-space model</h3>
+          <p>Creates a graph with axes corresponding to all search
+          terms, then plots all results on that graph. The query is a
+          vector (straight line) that fits the graph best; result points
+          that are closest to the line are more relevant than those that
+          are further away.</p>
+        </section>
+
+        <section>
+          <img src="images/vsm.jpg"/>
+        </section>
+
+        <section>
+          <p style="text-align=left">The Vector-Space Model allows us
+          more flexibility than the simpler set-theory Boolean model. It
+          ranks each document in a corpus by how relevent it is to a
+          given query. This allows for result sets to be more applicable
+          to researchers, and exposes the long-tail of less relevant
+          results. It is less concerned with maximizing precision and
+          recall <strong>before</strong> a search is run, than with
+          allowing users to explore results, tweaking precision and
+          recall <strong>after</strong> the search is run (either
+          through facets, or modifying the search terms.</p>
+        </section>
+
+        <section>
+          <p>In general, the idea behind the VSM is the more times a
+          query term appears in a document relative to the number of
+          times the term appears in all the documents in the collection,
+          the more relevant that document is to the query. </p>
+        </section>
+
+        <section>
+          <h3>Solr and ElasticSearch</h3>
+          <img src="images/solr.png" height="200px"/>
+          <img src="images/elasticsearch-logo.png" height="200px"/>
+        </section>
+
+        <section>
+          <p>Based on the Lucene indexing and querying library, written
+          in Java. Lucene allows for various information retrieval
+          models. Lucene uses boolean to remove completely irrelevant results,
+          then uses VSM to construct a relevancy-ranked result set.</p>
+          <p>Both Solr and ElasticSearch use this combination of models,
+          but they add other features to give more flexibility/precision
+          to the scoring/weighting of documents.</p>
+        </section>
+
+        <section>
+          <h3>Taking Advantage of non-Boolean Models</h3>
+          <ul><li>Single-search box</li>
+              <li>Faceting</li>
+              <li>Search engine configuration</li>
+              <li>Search techniques (e.g. phrase searching)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+          <h3>@redlibrarian</h3>
+        </section>
+
+
+
+       
 			</div>
 		</div>
 
